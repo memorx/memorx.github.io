@@ -1,0 +1,75 @@
+    * {
+        font-family: 'Arial';
+    }
+    
+    /* selector { propiedad: valor..1...N(  } */
+    h1 {
+        color: green;
+        font-size: 40px;
+    }
+
+    #encabezado {
+        background-color: red;
+        border: 10px solid black;
+        border-radius: 10px;
+        padding: 25px;
+        margin: 0px;
+        /* 0px 0px 10px 0px*/
+        margin-bottom: 20px; 
+        box-shadow: 5px 10px blue;
+    }
+
+
+    h2 {
+        text-align: center;
+    }
+
+    .descripcion {
+        font-size: 14px;
+    }
+
+    .link_mano {
+        cursor:pointer;
+    }
+
+    .color_texto_amarillo {
+        color: yellow;
+    }
+
+    p.parrafo_imagen, div.parrafo_imagen {
+        text-align: center;
+        background-color: aquamarine;
+    }
+    
+    div.links_para_netflix {
+        color: green
+    }
+
+    div#cuandro_1 {
+        width:350px; 
+        height: 350px; 
+        background-color: pink; 
+        float: left; 
+        padding: 10px; 
+    }
+
+    div#cuandro_2 {
+        width:350px; 
+        height: 350px; 
+        background-color: orange; 
+        float: left; 
+        padding: 10px;
+    }
+
+    div#contenido {
+        font-family: 'Lucida Console'; 
+        color:white
+    }
+
+    div h3#miID.miclase {
+        color: pink;
+    }
+
+    div#unico span.miClase p#miParrafo.color_verde {
+        color: green;
+    } 

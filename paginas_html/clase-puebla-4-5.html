@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Series Top de Netflix</title>
+</head>
+<body style="background-color: pink; margin: 0px">
+    <!-- estilo = utiliza el atributo style
+    siempre tiene que ir en pares. propiedad: valor  -->
+    <!-- CSS (Cascade Style Sheets) -->
+    <div id="encabezado_de_pagina" style="background-color: aquamarine">
+        <h1 style="color:red; margin: 0px">  
+            <span style="color:green">S</span><span style="color:blue">e</span><span style="color:pink">r</span><span style="color:yellow">i</span><span style="color:gold">e</span><span style="color:silver">s</span>
+            Top de Netflix</h1>
+        <p> Esta pagina habla de las top 5 series de netflix</p>
+        <a href="http://www.netflix.com" target="_blank">Este link te lleva a la pagina de Netflix</a>
+    </div>
+
+    <div style="background-color: pink; width: 500px; height: 500px; opacity: 1; ">
+        <div style="background-color: green; width: 500px; height: 250px; opacity: 1; ">
+            <span>1 </span>
+        </div>
+        <div style="background-color: blue; width: 500px; height: 250px; opacity: 1; ">
+            <div style="background-color: red; width: 500px; height: 125px; opacity: 1; ">
+                <span>3 </span>
+            </div>
+            <div style="background-color: yellow; width: 500px; height: 125px; opacity: 1; ">
+                <span>4 </span>
+            </div>
+        </div>
+        
+    </div>
+
+    <div style="background-color: greenyellow; width: 250px; height: 250px; border: 5px solid red; margin:10px 0px 0px 0px; padding: 0px 0px 0px 30px; ">
+        <img src="imagenes/narcos-mexico-netflix.jpg" height="50px" width="50px" alt="Imagen de la serie de Narcos Mexico en Netflix" />
+    </div>
+
+
+    <hr />
+
+    <div id="top_series" style="background-color: blue">
+        <center>
+            <h2> Top 5 Series de Netflix </h2>
+        </center>
+        <ol>
+            <li>
+                <a href="https://www.imdb.com/title/tt8714904/" target="_blank">
+                    <img src="imagenes/narcos-mexico-netflix.jpg" height="100px" width="200px" alt="Imagen de la serie de Narcos Mexico en Netflix" />
+                </a>
+                <br />
+                <a href="https://en.wikipedia.org/wiki/Narcos:_Mexico" target="_blank" >Narcos: Mexico  </a></li>
+                <!-- br = break line = salto de linea -->
+                
+            <li> Club de Cuervos</li>
+            <li> Ingobernable</li>
+            <li> Control Z</li>
+            <li> Monarca</li>
+        </ol>
+
+        <ul>
+            <li> <strike>Copa de oro del 2020</strike> </li>
+            <li> <strike>Copa de oro del 2021</strike> </li>
+            <li> Copa de oro del 2022 </li>
+        </ul>
+    
+    </div>
+    <!-- size = talla/tamanio -->
+    <hr />
+
+    <div style="background-color: yellow">
+        <h2 aria-label="Trailers de series">Trailers de series</h2>
+        <p>A continuacion se muestra el trailer de la temporada dos de 
+            <b>
+                <i>"Narcos: Mexico"</i>
+            </b> 
+        </p>
+
+        <!-- iframe = internet frame = separacion de internet -->
+
+        <iframe width="800" height="600" src="https://www.youtube.com/embed/3k0WCZgsgCQ" 
+            title="NarcosMexico trailewr de la temporada dos" 
+            frameborder="5" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen>
+        </iframe>
+
+        <br />
+
+        <video width="800" height="600" controls >
+            <source src="videos/rabbit.mp4" type="video/mp4">
+            <!-- <source src="videos/rabbit.ogg" type="video/ogg"> -->
+        </video>
+
+
+
+    </div>
+
+
+
+    <h2> Listas de streaming mas famosos </h2>
+    <!-- small = pequenio  -->
+    <!-- u = underline = subrayado -->
+    
+        <p> Esta lista habla de los <i>servicios</i> de streaming mas famosos en <strike>Asia</strike> <b>Latino America</b> <small>(un servicio de streaming nos permiste ver shows utilizando una
+            conexion rapida de <u>internet</u> si la necesidad de tener cable)</small></p>
+        <ul>
+            <li> Netflix </li>
+            <li> Disney plus</li>
+            <li> Amazon Prime</li>
+            <li> HBO Max</li>
+        </ul>
+
+    <center>
+    <!-- table = tabla -->
+    <table border="1">
+        <!-- table row =  fila  -->
+        <tr>
+            <!-- table header = encabezado de la tabla -->
+            <th width="700px" height="50px"> Tipo de plan </th>
+            <th> Costo </th>
+            <th> Disponilidad (Latinoamerica) </th>
+        </tr>
+        <tr>
+            <!-- tabla data = datos de la tabla -->
+            <td> Plan de oro </td>
+            <td> $70MXN (mes) </td>
+            <td> <center>Si</center></td>
+        </tr>
+        <tr>
+            <!-- tabla data = datos de la tabla -->
+            <td> Plan de plata </td>
+            <td> $50MXN (mes) </td>
+            <td> Si</td>
+        </tr>
+        <tr>
+            <!-- tabla data = datos de la tabla -->
+            <td> Plan de bronze </td>
+            <td> $30MXN (mes) </td>
+            <td> No </td>
+        </tr>
+
+
+        
+    </table>
+
+
+</center>
+
+        <br />
+        <br />
+        <!-- action = accion -->
+        <form action="mailto:guillermo.sanchezy@gmail.com">
+            Nombre: <input name="Name" value="" size="80" /><br/>
+            Email: <input name="Email" value="" size="60" /><br/>
+            Duda: <input name="Duda" value="Aqui puedes poner tu duda" size="100" /> <br />
+            <input type="submit" value="Enviar" /> </br>
+        </form>
+
+
+
+    
+    
+</body>
+</html>
+
