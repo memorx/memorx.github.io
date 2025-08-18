@@ -1,26 +1,1417 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <div style="background-color: aquamarine;">
-        <ul>
-            <li><a href="paginas_html/clase-puebla-1.html">Clase Puebla 1</a></li>
-            <li><a href="paginas_html/clase-puebla-2.html">Clase Puebla 2</a></li>
-            <li><a href="paginas_html/clase-puebla-3.html">Clase Puebla 3</a></li>
-            <li><a href="paginas_html/clase-puebla-4-5.html">Clase Puebla 4-5</a></li>
-            <li><a href="paginas_html/clase-puebla-4.html">Clase Puebla 4</a></li>
-            <li><a href="paginas_html/clase-puebla-actividad-2.html">Actividad 2</a></li>
-            <li><a href="paginas_html/clase-puebla-quito-5.html">Clase Puebla Quito 5</a></li>
-            <li><a href="pagina_arte.html">Pagina arte</a></li>
-            
-        </ul>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Guillermo Sanchez - Software Engineer & Technical Leader</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-    </div>
-    
-</body>
+      :root {
+        --primary: #29b8d6;
+        --primary-dark: #1a8ca3;
+        --accent: #d64729;
+        --accent-light: #ff6b4a;
+        --dark: #0a1628;
+        --gray: #4a5568;
+        --light: #f7fafc;
+        --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        --gradient-2: linear-gradient(135deg, #29b8d6 0%, #1a8ca3 100%);
+        --gradient-3: linear-gradient(135deg, #d64729 0%, #ff6b4a 100%);
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+          Oxygen, Ubuntu, sans-serif;
+        line-height: 1.6;
+        color: var(--dark);
+        background: #ffffff;
+        overflow-x: hidden;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      /* Animated Background */
+      .animated-bg {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        opacity: 0.03;
+        background: linear-gradient(
+          45deg,
+          var(--primary) 0%,
+          var(--accent) 100%
+        );
+      }
+
+      /* Header & Navigation */
+      header {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        box-shadow: 0 1px 20px rgba(0, 0, 0, 0.08);
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+        transition: all 0.3s ease;
+      }
+
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.2rem 0;
+      }
+
+      .logo {
+        font-size: 1.8rem;
+        font-weight: bold;
+        background: var(--gradient-2);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: glow 3s ease-in-out infinite;
+      }
+
+      @keyframes glow {
+        0%,
+        100% {
+          filter: brightness(1);
+        }
+        50% {
+          filter: brightness(1.2);
+        }
+      }
+
+      .nav-links {
+        display: flex;
+        list-style: none;
+        gap: 2.5rem;
+      }
+
+      .nav-links a {
+        color: var(--dark);
+        text-decoration: none;
+        font-weight: 500;
+        position: relative;
+        transition: color 0.3s;
+      }
+
+      .nav-links a::after {
+        content: '';
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: var(--gradient-2);
+        transition: width 0.3s;
+      }
+
+      .nav-links a:hover {
+        color: var(--primary);
+      }
+
+      .nav-links a:hover::after {
+        width: 100%;
+      }
+
+      /* Hero Section */
+      .hero {
+        background: linear-gradient(
+          135deg,
+          #29b8d6 0%,
+          #1a8ca3 50%,
+          #d64729 100%
+        );
+        position: relative;
+        padding: 140px 0 100px;
+        margin-top: 70px;
+        overflow: hidden;
+      }
+
+      .hero::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('data:image/svg+xml,<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><g fill="%23ffffff" fill-opacity="0.05"><path d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/></g></g></svg>');
+        animation: float 20s infinite linear;
+      }
+
+      @keyframes float {
+        0% {
+          transform: translate(0, 0);
+        }
+        100% {
+          transform: translate(-60px, -60px);
+        }
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 1;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        align-items: center;
+      }
+
+      .hero-text h1 {
+        font-size: 3.5rem;
+        color: white;
+        margin-bottom: 1rem;
+        animation: slideInLeft 0.8s ease;
+      }
+
+      @keyframes slideInLeft {
+        from {
+          transform: translateX(-50px);
+          opacity: 0;
+        }
+        to {
+          transform: translateX(0);
+          opacity: 1;
+        }
+      }
+
+      .hero-text .subtitle {
+        font-size: 1.8rem;
+        color: rgba(255, 255, 255, 0.95);
+        margin-bottom: 1.5rem;
+        animation: slideInLeft 0.8s ease 0.2s both;
+      }
+
+      .hero-text .description {
+        font-size: 1.15rem;
+        line-height: 1.8;
+        color: rgba(255, 255, 255, 0.9);
+        margin-bottom: 2.5rem;
+        animation: slideInLeft 0.8s ease 0.4s both;
+      }
+
+      .cta-buttons {
+        display: flex;
+        gap: 1.2rem;
+        flex-wrap: wrap;
+        animation: slideInLeft 0.8s ease 0.6s both;
+      }
+
+      .btn {
+        padding: 14px 32px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        display: inline-block;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .btn::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 0;
+        height: 0;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.3);
+        transform: translate(-50%, -50%);
+        transition: width 0.6s, height 0.6s;
+      }
+
+      .btn:hover::before {
+        width: 300px;
+        height: 300px;
+      }
+
+      .btn-primary {
+        background: white;
+        color: var(--primary);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      }
+
+      .btn-primary:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+      }
+
+      .btn-secondary {
+        background: rgba(255, 255, 255, 0.1);
+        color: white;
+        border: 2px solid white;
+        backdrop-filter: blur(10px);
+      }
+
+      .btn-secondary:hover {
+        background: rgba(255, 255, 255, 0.2);
+        transform: translateY(-3px);
+      }
+
+      .btn-github {
+        background: var(--dark);
+        color: white;
+      }
+
+      .btn-github:hover {
+        background: #1a202c;
+        transform: translateY(-3px);
+      }
+
+      .hero-visual {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        animation: slideInRight 0.8s ease;
+      }
+
+      @keyframes slideInRight {
+        from {
+          transform: translateX(50px);
+          opacity: 0;
+        }
+        to {
+          transform: translateX(0);
+          opacity: 1;
+        }
+      }
+
+      .glass-card {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(20px);
+        border-radius: 20px;
+        padding: 3rem;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        animation: float-card 6s ease-in-out infinite;
+      }
+
+      @keyframes float-card {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-20px);
+        }
+      }
+
+      .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+      }
+
+      .stat-item {
+        text-align: center;
+        color: white;
+      }
+
+      .stat-number {
+        font-size: 2.5rem;
+        font-weight: bold;
+        display: block;
+        margin-bottom: 0.5rem;
+        background: linear-gradient(135deg, #fff, rgba(255, 255, 255, 0.8));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .stat-label {
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        opacity: 0.9;
+      }
+
+      /* Skills Section */
+      .skills {
+        padding: 100px 0;
+        background: white;
+        position: relative;
+      }
+
+      .section-title {
+        font-size: 3rem;
+        text-align: center;
+        margin-bottom: 4rem;
+        position: relative;
+        color: var(--dark);
+      }
+
+      .section-title::after {
+        content: '';
+        position: absolute;
+        bottom: -15px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 4px;
+        background: var(--gradient-2);
+        border-radius: 2px;
+      }
+
+      .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2.5rem;
+      }
+
+      .skill-card {
+        background: white;
+        border-radius: 20px;
+        padding: 2.5rem;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .skill-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: var(--gradient-2);
+        transform: scaleX(0);
+        transition: transform 0.3s ease;
+      }
+
+      .skill-card:nth-child(even)::before {
+        background: var(--gradient-3);
+      }
+
+      .skill-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+      }
+
+      .skill-card:hover::before {
+        transform: scaleX(1);
+      }
+
+      .skill-icon {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+      }
+
+      .skill-card h3 {
+        color: var(--dark);
+        margin-bottom: 1.2rem;
+        font-size: 1.4rem;
+      }
+
+      .skill-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.6rem;
+      }
+
+      .skill-tag {
+        padding: 8px 16px;
+        background: linear-gradient(
+          135deg,
+          rgba(41, 184, 214, 0.1),
+          rgba(214, 71, 41, 0.1)
+        );
+        border: 1px solid rgba(41, 184, 214, 0.2);
+        border-radius: 25px;
+        font-size: 0.85rem;
+        color: var(--gray);
+        transition: all 0.3s ease;
+      }
+
+      .skill-tag:hover {
+        background: var(--gradient-2);
+        color: white;
+        transform: scale(1.05);
+      }
+
+      /* Experience Timeline */
+      .experience {
+        padding: 100px 0;
+        background: linear-gradient(180deg, #f7fafc 0%, #ffffff 100%);
+      }
+
+      .timeline {
+        position: relative;
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+
+      .timeline::before {
+        content: '';
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 3px;
+        height: 100%;
+        background: var(--gradient-2);
+        border-radius: 2px;
+      }
+
+      .timeline-item {
+        position: relative;
+        padding: 2.5rem;
+        background: white;
+        border-radius: 20px;
+        margin-bottom: 3rem;
+        width: calc(50% - 40px);
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+        transition: all 0.3s ease;
+      }
+
+      .timeline-item:hover {
+        transform: scale(1.02);
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+      }
+
+      .timeline-item:nth-child(odd) {
+        margin-left: auto;
+      }
+
+      .timeline-dot {
+        position: absolute;
+        width: 24px;
+        height: 24px;
+        background: white;
+        border: 4px solid var(--primary);
+        border-radius: 50%;
+        top: 30px;
+        box-shadow: 0 0 0 8px rgba(41, 184, 214, 0.1);
+      }
+
+      .timeline-item:nth-child(odd) .timeline-dot {
+        left: -52px;
+      }
+
+      .timeline-item:nth-child(even) .timeline-dot {
+        right: -52px;
+      }
+
+      .timeline-item:nth-child(even) .timeline-dot {
+        border-color: var(--accent);
+        box-shadow: 0 0 0 8px rgba(214, 71, 41, 0.1);
+      }
+
+      .company-name {
+        color: var(--primary);
+        font-weight: bold;
+        font-size: 1.3rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .timeline-item:nth-child(even) .company-name {
+        color: var(--accent);
+      }
+
+      .role-title {
+        font-size: 1.1rem;
+        color: var(--dark);
+        margin-bottom: 0.5rem;
+      }
+
+      .period {
+        color: var(--gray);
+        font-size: 0.9rem;
+        margin-bottom: 1rem;
+      }
+
+      .experience-desc {
+        color: var(--gray);
+        line-height: 1.8;
+        margin-bottom: 1rem;
+      }
+
+      .tech-stack {
+        padding-top: 1rem;
+        border-top: 1px solid #e2e8f0;
+      }
+
+      .tech-stack strong {
+        color: var(--dark);
+      }
+
+      /* Education Section */
+      .education {
+        padding: 100px 0;
+        background: white;
+      }
+
+      .education-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 3rem;
+        margin-bottom: 4rem;
+      }
+
+      .education-card {
+        background: linear-gradient(
+          135deg,
+          rgba(41, 184, 214, 0.05),
+          rgba(214, 71, 41, 0.05)
+        );
+        border-radius: 20px;
+        padding: 3rem;
+        text-align: center;
+        border: 2px solid rgba(41, 184, 214, 0.2);
+        transition: all 0.3s ease;
+      }
+
+      .education-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+        border-color: var(--primary);
+      }
+
+      .degree-icon {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+      }
+
+      .education-card h3 {
+        color: var(--primary);
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .degree-field {
+        color: var(--dark);
+        font-size: 1.1rem;
+        font-weight: 500;
+        margin-bottom: 1rem;
+      }
+
+      .university {
+        color: var(--gray);
+        font-weight: 600;
+        margin-bottom: 0.3rem;
+      }
+
+      .location {
+        color: var(--gray);
+        font-size: 0.9rem;
+      }
+
+      .certifications {
+        background: var(--light);
+        border-radius: 20px;
+        padding: 2.5rem;
+      }
+
+      .certifications h3 {
+        color: var(--dark);
+        text-align: center;
+        margin-bottom: 2rem;
+        font-size: 1.5rem;
+      }
+
+      .cert-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+      }
+
+      .cert-item {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding: 1rem;
+        background: white;
+        border-radius: 12px;
+        transition: all 0.3s ease;
+      }
+
+      .cert-item:hover {
+        background: var(--gradient-2);
+        color: white;
+        transform: translateX(10px);
+      }
+
+      .cert-icon {
+        font-size: 1.5rem;
+      }
+
+      /* Projects Section */
+      .projects {
+        padding: 100px 0;
+        background: white;
+      }
+
+      .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+        gap: 3rem;
+      }
+
+      .project-card {
+        border-radius: 20px;
+        overflow: hidden;
+        transition: all 0.3s ease;
+        background: white;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+        position: relative;
+      }
+
+      .project-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: var(--gradient-2);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      .project-card:hover {
+        transform: translateY(-10px) scale(1.02);
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+      }
+
+      .project-card:nth-child(even) .project-header {
+        background: var(--gradient-3);
+      }
+
+      .project-header {
+        background: var(--gradient-2);
+        color: white;
+        padding: 2.5rem;
+        position: relative;
+        z-index: 1;
+      }
+
+      .project-title {
+        font-size: 1.8rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .project-type {
+        opacity: 0.95;
+        font-size: 1.1rem;
+      }
+
+      .project-body {
+        padding: 2.5rem;
+        position: relative;
+        z-index: 1;
+      }
+
+      .project-description {
+        color: var(--gray);
+        margin-bottom: 2rem;
+        line-height: 1.8;
+      }
+
+      .project-highlights {
+        list-style: none;
+        margin-bottom: 2rem;
+      }
+
+      .project-highlights li {
+        padding: 0.8rem 0;
+        padding-left: 2rem;
+        position: relative;
+        color: var(--dark);
+      }
+
+      .project-highlights li::before {
+        content: '✨';
+        position: absolute;
+        left: 0;
+        font-size: 1.2rem;
+      }
+
+      .project-links {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+
+      .project-link {
+        padding: 10px 20px;
+        border-radius: 25px;
+        text-decoration: none;
+        font-size: 0.9rem;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .project-link-primary {
+        background: var(--gradient-2);
+        color: white;
+      }
+
+      .project-link-secondary {
+        background: transparent;
+        color: var(--primary);
+        border: 2px solid var(--primary);
+      }
+
+      .project-link:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      }
+
+      /* Contact Section */
+      .contact {
+        padding: 100px 0;
+        background: linear-gradient(135deg, var(--dark) 0%, #1a2332 100%);
+        color: white;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .contact::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('data:image/svg+xml,<svg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><g fill="%2329b8d6" fill-opacity="0.03"><path d="M20 20v-10h-10v10h10zm0 0v10h10v-10h-10z"/></g></svg>');
+        animation: float 15s infinite linear reverse;
+      }
+
+      .contact-content {
+        position: relative;
+        z-index: 1;
+      }
+
+      .contact .section-title {
+        color: white;
+      }
+
+      .contact-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 2rem;
+        max-width: 800px;
+        margin: 3rem auto;
+      }
+
+      .contact-card {
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 15px;
+        padding: 1.5rem;
+        transition: all 0.3s ease;
+      }
+
+      .contact-card:hover {
+        background: rgba(255, 255, 255, 0.1);
+        transform: translateY(-5px);
+      }
+
+      .contact-icon {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+      }
+
+      .contact-card a {
+        color: white;
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.3s;
+      }
+
+      .contact-card a:hover {
+        color: var(--primary);
+      }
+
+      /* Footer */
+      footer {
+        background: var(--dark);
+        color: rgba(255, 255, 255, 0.6);
+        text-align: center;
+        padding: 2rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      /* Mobile Responsive */
+      @media (max-width: 768px) {
+        .hero-content {
+          grid-template-columns: 1fr;
+          text-align: center;
+        }
+
+        .hero-text h1 {
+          font-size: 2.5rem;
+        }
+
+        .cta-buttons {
+          justify-content: center;
+        }
+
+        .timeline::before {
+          left: 30px;
+        }
+
+        .timeline-item {
+          width: calc(100% - 60px);
+          margin-left: 60px !important;
+        }
+
+        .timeline-dot {
+          left: -52px !important;
+        }
+
+        .nav-links {
+          display: none;
+        }
+
+        .projects-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .stats-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* Scroll animations */
+      .fade-in-up {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.6s ease;
+      }
+
+      .fade-in-up.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="animated-bg"></div>
+
+    <!-- Navigation -->
+    <header>
+      <nav class="container">
+        <div class="logo">GS</div>
+        <ul class="nav-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+      <div class="container">
+        <div class="hero-content">
+          <div class="hero-text">
+            <h1>Guillermo Sanchez</h1>
+            <p class="subtitle">CTO & AI Innovation Leader</p>
+            <p class="description">
+              Architecting the future with 15+ years of experience in enterprise
+              software, currently pioneering AI agent systems and LLM workflows.
+              Transforming ideas into scalable solutions that drive business
+              impact.
+            </p>
+            <div class="cta-buttons">
+              <a href="#contact" class="btn btn-primary">Let's Connect</a>
+              <a
+                href="https://github.com/memorx"
+                target="_blank"
+                class="btn btn-github"
+              >
+                <span>⚡</span> GitHub
+              </a>
+              <a
+                href="https://linkedin.com/in/guillermomanuelsanchez"
+                target="_blank"
+                class="btn btn-secondary"
+              >
+                <span>🔗</span> LinkedIn
+              </a>
+            </div>
+          </div>
+          <div class="hero-visual">
+            <div class="glass-card">
+              <div class="stats-grid">
+                <div class="stat-item">
+                  <span class="stat-number">15+</span>
+                  <span class="stat-label">Years</span>
+                </div>
+                <div class="stat-item">
+                  <span class="stat-number">CTO</span>
+                  <span class="stat-label">Role</span>
+                </div>
+                <div class="stat-item">
+                  <span class="stat-number">AI</span>
+                  <span class="stat-label">Focus</span>
+                </div>
+                <div class="stat-item">
+                  <span class="stat-number">50+</span>
+                  <span class="stat-label">Projects</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+      <div class="container">
+        <h2 class="section-title fade-in-up">Technical Arsenal</h2>
+        <div class="skills-grid">
+          <div class="skill-card fade-in-up">
+            <div class="skill-icon">🤖</div>
+            <h3>AI & Machine Learning</h3>
+            <div class="skill-tags">
+              <span class="skill-tag">LLM Workflows</span>
+              <span class="skill-tag">OpenAI API</span>
+              <span class="skill-tag">RAG Systems</span>
+              <span class="skill-tag">n8n Automation</span>
+              <span class="skill-tag">Prompt Engineering</span>
+              <span class="skill-tag">Agent Systems</span>
+            </div>
+          </div>
+          <div class="skill-card fade-in-up">
+            <div class="skill-icon">💻</div>
+            <h3>Frontend Mastery</h3>
+            <div class="skill-tags">
+              <span class="skill-tag">React</span>
+              <span class="skill-tag">TypeScript</span>
+              <span class="skill-tag">Redux</span>
+              <span class="skill-tag">Next.js</span>
+              <span class="skill-tag">Vue.js</span>
+              <span class="skill-tag">Responsive Design</span>
+            </div>
+          </div>
+          <div class="skill-card fade-in-up">
+            <div class="skill-icon">⚙️</div>
+            <h3>Backend & Cloud</h3>
+            <div class="skill-tags">
+              <span class="skill-tag">Node.js</span>
+              <span class="skill-tag">C# .NET</span>
+              <span class="skill-tag">Azure</span>
+              <span class="skill-tag">Microservices</span>
+              <span class="skill-tag">Docker</span>
+              <span class="skill-tag">REST APIs</span>
+            </div>
+          </div>
+          <div class="skill-card fade-in-up">
+            <div class="skill-icon">👥</div>
+            <h3>Leadership</h3>
+            <div class="skill-tags">
+              <span class="skill-tag">Team Building</span>
+              <span class="skill-tag">Agile/Scrum</span>
+              <span class="skill-tag">Mentoring</span>
+              <span class="skill-tag">Architecture</span>
+              <span class="skill-tag">Strategy</span>
+              <span class="skill-tag">Innovation</span>
+            </div>
+          </div>
+          <div class="skill-card fade-in-up">
+            <div class="skill-icon">📱</div>
+            <h3>Mobile & IoT</h3>
+            <div class="skill-tags">
+              <span class="skill-tag">Android</span>
+              <span class="skill-tag">iOS</span>
+              <span class="skill-tag">Unity 3D</span>
+              <span class="skill-tag">Azure IoT</span>
+              <span class="skill-tag">Telemetry</span>
+              <span class="skill-tag">Robotics</span>
+            </div>
+          </div>
+          <div class="skill-card fade-in-up">
+            <div class="skill-icon">🎓</div>
+            <h3>Methodologies</h3>
+            <div class="skill-tags">
+              <span class="skill-tag">TDD</span>
+              <span class="skill-tag">CI/CD</span>
+              <span class="skill-tag">DevOps</span>
+              <span class="skill-tag">Code Reviews</span>
+              <span class="skill-tag">WCAG</span>
+              <span class="skill-tag">i18n</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience">
+      <div class="container">
+        <h2 class="section-title fade-in-up">Career Journey</h2>
+        <div class="timeline">
+          <div class="timeline-item fade-in-up">
+            <div class="timeline-dot"></div>
+            <div class="company-name">Made by Humans</div>
+            <div class="role-title">Chief Technology Officer (CTO)</div>
+            <div class="period">2024 - Present | Canada/Morelia</div>
+            <div class="experience-desc">
+              Leading AI innovation, architecting autonomous agent systems with
+              LLM workflows and RAG implementations. Building high-performance
+              teams focused on cutting-edge AI solutions.
+            </div>
+            <div class="tech-stack">
+              <strong>Stack:</strong> AI Agents, n8n, OpenAI, RAG, React, Chrome
+              Extensions
+            </div>
+          </div>
+
+          <div class="timeline-item fade-in-up">
+            <div class="timeline-dot"></div>
+            <div class="company-name">MyFO (First Democracy)</div>
+            <div class="role-title">Technical Lead / Senior Frontend</div>
+            <div class="period">2025 - Present | Vancouver, BC</div>
+            <div class="experience-desc">
+              Architecting fintech platform frontend, creating real-time
+              financial dashboards with focus on performance and accessibility.
+            </div>
+            <div class="tech-stack">
+              <strong>Stack:</strong> React, TypeScript, Redux, Data
+              Visualization, CI/CD
+            </div>
+          </div>
+
+          <div class="timeline-item fade-in-up">
+            <div class="timeline-dot"></div>
+            <div class="company-name">Wenco Mining (Hitachi)</div>
+            <div class="role-title">Senior Software Engineer</div>
+            <div class="period">2020 - 2025 | Vancouver, BC</div>
+            <div class="experience-desc">
+              Developed enterprise mining platform with Azure IoT integration,
+              led frontend team, coordinated with global teams for seamless
+              delivery.
+            </div>
+            <div class="tech-stack">
+              <strong>Stack:</strong> React, Node.js, C#, Azure IoT, Cloud
+              Architecture
+            </div>
+          </div>
+
+          <div class="timeline-item fade-in-up">
+            <div class="timeline-dot"></div>
+            <div class="company-name">Unity (formerly Finger Food ATG)</div>
+            <div class="role-title">Senior Web Developer</div>
+            <div class="period">2019 - 2020 | Vancouver, BC</div>
+            <div class="experience-desc">
+              Developed cutting-edge AR/VR experiences and interactive robot
+              companions using Unity 3D, focusing on gesture recognition and
+              real-time user interaction.
+            </div>
+            <div class="tech-stack">
+              <strong>Stack:</strong> Unity 3D, JavaScript, React, WebGL, AR/VR
+            </div>
+          </div>
+
+          <div class="timeline-item fade-in-up">
+            <div class="timeline-dot"></div>
+            <div class="company-name">Multiple Companies</div>
+            <div class="role-title">Senior Developer & Lead</div>
+            <div class="period">2008 - 2019</div>
+            <div class="experience-desc">
+              Progressive growth through Radical I/O, Central 1 Credit Union,
+              and Sage Software. Built expertise in full-stack development and
+              team leadership.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="education">
+      <div class="container">
+        <h2 class="section-title fade-in-up">Education & Certifications</h2>
+        <div class="education-grid">
+          <div class="education-card fade-in-up">
+            <div class="degree-icon">🎓</div>
+            <h3>Master of Science (MS)</h3>
+            <p class="degree-field">Information Systems and Computing</p>
+            <p class="university">Athabasca University</p>
+            <p class="location">Calgary, Alberta</p>
+          </div>
+          <div class="education-card fade-in-up">
+            <div class="degree-icon">🎓</div>
+            <h3>Bachelor of Science</h3>
+            <p class="degree-field">Computer Science</p>
+            <p class="university">Tecnológico de Monterrey</p>
+            <p class="location">Monterrey, México</p>
+          </div>
+        </div>
+        <div class="certifications fade-in-up">
+          <h3>Professional Certifications</h3>
+          <div class="cert-grid">
+            <div class="cert-item">
+              <span class="cert-icon">📜</span>
+              <span>Certified Scrum Master (CSM)</span>
+            </div>
+            <div class="cert-item">
+              <span class="cert-icon">☕</span>
+              <span>Sun Certified Java Associate</span>
+            </div>
+            <div class="cert-item">
+              <span class="cert-icon">🗄️</span>
+              <span>MongoDB for Java Developers</span>
+            </div>
+            <div class="cert-item">
+              <span class="cert-icon">🤖</span>
+              <span>Android Developer Certificate</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+      <div class="container">
+        <h2 class="section-title fade-in-up">Featured Projects</h2>
+        <div class="projects-grid">
+          <div class="project-card fade-in-up">
+            <div class="project-header">
+              <h3 class="project-title">AI Agent Orchestration</h3>
+              <p class="project-type">Made by Humans</p>
+            </div>
+            <div class="project-body">
+              <p class="project-description">
+                Revolutionary AI agent system using n8n workflows, OpenAI APIs,
+                and custom RAG pipelines for automated content generation and
+                intelligent process automation.
+              </p>
+              <ul class="project-highlights">
+                <li>80% reduction in content generation time</li>
+                <li>Adaptive agent chaining architecture</li>
+                <li>Chrome extension for seamless UX</li>
+              </ul>
+              <div class="project-links">
+                <a
+                  href="https://madebyhumans.digital/"
+                  target="_blank"
+                  class="project-link project-link-primary"
+                >
+                  <span>🔗</span> Visit Website
+                </a>
+                <a
+                  href="https://github.com/memorx/architectures/blob/main/ai-agents-readme.md"
+                  class="project-link project-link-secondary"
+                >
+                  <span>📄</span> Case Study
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card fade-in-up">
+            <div class="project-header">
+              <h3 class="project-title">Financial Analytics Platform</h3>
+              <p class="project-type">MyFO</p>
+            </div>
+            <div class="project-body">
+              <p class="project-description">
+                Real-time financial visualization platform with interactive
+                dashboards, accessible design, and lightning-fast data
+                processing capabilities.
+              </p>
+              <ul class="project-highlights">
+                <li>1M+ data points processed in real-time</li>
+                <li>WCAG AAA accessibility compliance</li>
+                <li>Microservices architecture with Redis caching</li>
+              </ul>
+              <div class="project-links">
+                <a
+                  href="https://www.myfotech.com/"
+                  target="_blank"
+                  class="project-link project-link-primary"
+                >
+                  <span>🔗</span> Live Platform
+                </a>
+                <a
+                  href="https://github.com/memorx/architectures/blob/main/fintech-dashboard-readme.md"
+                  class="project-link project-link-secondary"
+                >
+                  <span>📊</span> Architecture
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card fade-in-up">
+            <div class="project-header">
+              <h3 class="project-title">IoT Mining Platform</h3>
+              <p class="project-type">Wenco Mining Systems</p>
+            </div>
+            <div class="project-body">
+              <p class="project-description">
+                Enterprise-scale mining telemetry system with Azure IoT
+                integration, real-time monitoring, and predictive maintenance
+                capabilities.
+              </p>
+              <ul class="project-highlights">
+                <li>10TB+ daily telemetry processing</li>
+                <li>35% reduction in equipment downtime</li>
+                <li>Event-driven architecture with Azure Service Bus</li>
+              </ul>
+              <div class="project-links">
+                <a
+                  href="https://www.wencomine.com/"
+                  target="_blank"
+                  class="project-link project-link-primary"
+                >
+                  <span>🔗</span> Company Site
+                </a>
+                <a
+                  href="https://github.com/memorx/architectures/blob/main/azure-iot-readme.md"
+                  class="project-link project-link-secondary"
+                >
+                  <span>🏗️</span> Architecture
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card fade-in-up">
+            <div class="project-header">
+              <h3 class="project-title">Interactive Robot Experience</h3>
+              <p class="project-type">Unity (formerly Finger Food ATG)</p>
+            </div>
+            <div class="project-body">
+              <p class="project-description">
+                Developed interactive AR/VR robot companion using Unity 3D,
+                gesture recognition, and real-time voice interaction for
+                immersive user experiences.
+              </p>
+              <ul class="project-highlights">
+                <li>Natural language processing integration</li>
+                <li>Cross-platform deployment (iOS/Android/HoloLens)</li>
+                <li>Real-time gesture and voice recognition</li>
+              </ul>
+              <div class="project-links">
+                <a
+                  href="https://unity.com/"
+                  target="_blank"
+                  class="project-link project-link-primary"
+                >
+                  <span>🔗</span> Unity Platform
+                </a>
+                <a
+                  href="https://github.com/memorx/architectures/blob/main/ar-vr-robotics-readme.md"
+                  class="project-link project-link-secondary"
+                >
+                  <span>🤖</span> Architecture
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+      <div class="container contact-content">
+        <h2 class="section-title">Let's Build Something Amazing</h2>
+        <div class="contact-grid">
+          <div class="contact-card">
+            <div class="contact-icon">📧</div>
+            <a href="mailto:guillermo.sanchezy@gmail.com"
+              >guillermo.sanchezy@gmail.com</a
+            >
+          </div>
+          <div class="contact-card">
+            <div class="contact-icon">📱</div>
+            <a href="tel:778-228-1225">778-228-1225</a>
+          </div>
+          <div class="contact-card">
+            <div class="contact-icon">💼</div>
+            <a
+              href="https://linkedin.com/in/guillermomanuelsanchez"
+              target="_blank"
+              >LinkedIn Profile</a
+            >
+          </div>
+          <div class="contact-card">
+            <div class="contact-icon">📍</div>
+            <span>Vancouver, BC</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2025 Guillermo Sanchez. Built with passion and code.</p>
+    </footer>
+
+    <script>
+      // Smooth scrolling
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            target.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }
+        });
+      });
+
+      // Scroll animations
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, observerOptions);
+
+      document.querySelectorAll('.fade-in-up').forEach((el) => {
+        observer.observe(el);
+      });
+
+      // Header scroll effect
+      let lastScroll = 0;
+      window.addEventListener('scroll', () => {
+        const header = document.querySelector('header');
+        const currentScroll = window.pageYOffset;
+
+        if (currentScroll > 100) {
+          header.style.background = 'rgba(255, 255, 255, 0.98)';
+          header.style.boxShadow = '0 2px 20px rgba(0,0,0,0.1)';
+        } else {
+          header.style.background = 'rgba(255, 255, 255, 0.95)';
+          header.style.boxShadow = '0 1px 20px rgba(0,0,0,0.08)';
+        }
+      });
+    </script>
+  </body>
 </html>
